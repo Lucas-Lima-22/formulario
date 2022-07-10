@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+        }
+        main{
+            background-color: white;
+            color: #000000;
+            width: 360px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        p{
+            margin: 10px 0px;
+        }
+
+        input{
+            width: 350px;
+            height: 25px;
+            text-indent: 5px;
+            padding-top: 2px;
+            font-size: 1.2em;
+            border: 1px solid gray;
+            outline: none;
+        }
+
+        input:focus{
+            border: 1px solid black;
+        }
+
+        input#confirmar{
+            background-color: forestgreen;
+            width: 177px;
+            height: 35px;
+        }
+
+        input#confirmar:active{
+            outline: 1px solid forestgreen;
+        }
+
+        input#cancelar:active{
+            outline: 1px solid red;
+        }
+
+        input#cancelar{
+            background-color: red;
+            width: 177px;
+            height: 35px;
+            margin-top: 10px;
+        }
+
+        select{
+            width: 177px;
+            height: 30px;
+            text-indent: 10px;
+            padding-top: 1px;
+        }
+
+        ::placeholder{
+            color: darkgrey;
+        }
+
+        span{
+            color: #ff0000;
+            font-size: 0.8em;
+        }
+
+        div#gen_fem, div#gen_masc{
+            position: relative;
+            width: 175px;
+            height: 30px;
+            border: 1px solid gray;
+            display: inline-block;
+        }
+
+        label#lab_fem, label#lab_masc{
+            line-height: 30px;
+            left: 35px;
+            position: absolute;
+            
+        }
+
+        input#fem, input#masc{
+            position: absolute;
+            height: 30px;
+            margin: 0px;
+            width: 13px;
+            right: 35px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <form action="" autocomplete="off" id="form">
+            <p><label for="nome">Nome </label></p>
+            <p><input type="text" name="nome" id="nome" oninput="mascara_nome()" onblur="verifica_nome()" required></p>
+            <p><span id="erro_nome" style="display: none;"></span></p>
+            <p><label for="cpf">CPF </label></p>
+            <p><input type="text" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="xxx.xxx.xxx-xx" name="cpf" id="cpf" maxlength="14" oninput="mascara_cpf()" onblur="verifica_cpf()" required></p>
+            <p><span id="erro_cpf" style="display: none;"></span></p>
+            <p><label for="email">E-mail </label></p>
+            <p><input type="email" name="email" id="email" onblur="verifica_email()"required></p>
+            <p><span id="erro_email" style="display: none;"></span></p>
+            <p><label for="nascimento">Data de Nascimento </label></p>
+            <p><input type="text" name="nascimento" id="nascimento" onblur="verifica_nascimento()" maxlength="10" oninput="mascara_nascimento()" placeholder="dd/mm/aaaa"required></p>
+            <p><span id="erro_nascimento" style="display: none;"></span></p>
+            <p><label for="fem">Gênero</label></p>  
+            <div id="gen_fem">
+                <label for="fem" id="lab_fem">Feminino</label>
+                <input type="radio" value="1" name="genero" id="fem" required>
+            </div>
+            <div id="gen_masc">
+                <label for="masc" id="lab_masc">Masculino</label>
+                <input type="radio" value="2" name="genero" id="masc">
+            </div>
+            <p><label for="senha">Senha</label></p>
+            <p><input type="password" name="senha" id="senha" onblur="verifica_senha()" minlength="8" maxlength="15" required></p>
+            <p><span id="erro_senha" style="display: none;"></span></p>
+            <p><label for="confirma_senha">Confirmar Senha </label></p>
+            <p><input type="password" name="confirma_senha" id="confirma_senha" onblur="verifica_confirma_senha()" minlength="8" maxlength="15"required></p>
+            <p><span id="erro_confirma_senha" style="display: none;"></span></p> 
+            <p><input id="confirmar" type="submit" value="Confirmar" onclick="validar()"> 
+                <input id="cancelar" type="button" value="Cancelar" onclick="limpar()">
+            </p>
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
