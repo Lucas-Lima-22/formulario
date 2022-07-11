@@ -9,8 +9,8 @@ function mascara_nome(){
       document.getElementById("nome").style.outline = "#ff0000";
    } else{
       document.getElementById("erro_nome").style.display = "none";
-      document.getElementById("nome").style.borderColor = "#000000";
-      document.getElementById("nome").style.outline = "#000000";
+      document.getElementById("nome").style.borderColor = "#808080";
+      document.getElementById("nome").style.outline = "#808080";
    }
 }
 
@@ -38,8 +38,8 @@ function mascara_cpf(){
       document.getElementById("cpf").style.outline = "#ff0000";
    } else {
       document.getElementById("erro_cpf").style.display = "none";
-      document.getElementById("cpf").style.borderColor = "#000000";
-      document.getElementById("cpf").style.outline = "#000000";
+      document.getElementById("cpf").style.borderColor = "#808080";
+      document.getElementById("cpf").style.outline = "#808080";
    }
 
    if (cpf.length == 3 || cpf.length == 7) document.getElementById("cpf").value += ".";
@@ -63,8 +63,8 @@ function verifica_cpf(){
       return false;
    } else{
       document.getElementById("erro_cpf").style.display = "none";
-      document.getElementById("cpf").style.borderColor = "#000000";
-      document.getElementById("cpf").style.outline = "#000000";
+      document.getElementById("cpf").style.borderColor = "#808080";
+      document.getElementById("cpf").style.outline = "#808080";
       return true;
    }
 }
@@ -82,8 +82,8 @@ function verifica_email() {
       return false;
    } else {
       document.getElementById("erro_email").style.display = "none";
-      document.getElementById("email").style.borderColor = "#000000";
-      document.getElementById("email").style.outline = "#000000";
+      document.getElementById("email").style.borderColor = "#808080";
+      document.getElementById("email").style.outline = "#808080";
       return true;
    }
 }
@@ -99,8 +99,8 @@ function mascara_nascimento(){
       document.getElementById("nascimento").style.outline = "#ff0000";
    } else {
       document.getElementById("erro_nascimento").style.display = "none";
-      document.getElementById("nascimento").style.borderColor = "#000000";
-      document.getElementById("nascimento").style.outline = "#000000";
+      document.getElementById("nascimento").style.borderColor = "#808080";
+      document.getElementById("nascimento").style.outline = "#808080";
    }
    if (nascimento.length == 2 || nascimento.length == 5) document.getElementById("nascimento").value += "/";
 }
@@ -122,35 +122,35 @@ function verifica_nascimento(){
       return false;
    } else{
       document.getElementById("erro_nascimento").style.display = "none";
-      document.getElementById("nascimento").style.borderColor = "#000000";
-      document.getElementById("nascimento").style.outline = "#000000";
+      document.getElementById("nascimento").style.borderColor = "#808080";
+      document.getElementById("nascimento").style.outline = "#808080";
       return true;
    }
 }
 
 function sel_fem(){
    document.getElementById("erro_genero").style.display = "none";
-   document.getElementById("gen_fem").style.borderColor = "#000000";
-   document.getElementById("gen_masc").style.borderColor = "#000000";
+   document.getElementById("gen_fem").style.borderColor = "#808080";
+   document.getElementById("gen_masc").style.borderColor = "#808080";
 }
 
 function sel_masc(){
    document.getElementById("erro_genero").style.display = "none";
-   document.getElementById("gen_fem").style.borderColor = "#000000";
-   document.getElementById("gen_masc").style.borderColor = "#000000";
+   document.getElementById("gen_fem").style.borderColor = "#808080";
+   document.getElementById("gen_masc").style.borderColor = "#808080";
 }
 
 function verifica_genero(){
    //genero = document.querySelector('input[name="genero"]:checked').value;
    if (document.getElementById("fem").checked) {
       document.getElementById("erro_genero").style.display = "none";
-      document.getElementById("gen_fem").style.borderColor = "#000000";
-      document.getElementById("gen_masc").style.borderColor = "#000000";
+      document.getElementById("gen_fem").style.borderColor = "#808080";
+      document.getElementById("gen_masc").style.borderColor = "#808080";
       return true;
    } else if (document.getElementById("masc").checked) {
       document.getElementById("erro_genero").style.display = "none";
-      document.getElementById("gen_fem").style.borderColor = "#000000";
-      document.getElementById("gen_masc").style.borderColor = "#000000";
+      document.getElementById("gen_fem").style.borderColor = "#808080";
+      document.getElementById("gen_masc").style.borderColor = "#808080";
       return true;
    } else {
       document.getElementById("gen_fem").style.borderColor = "#ff0000";
@@ -178,8 +178,8 @@ function verifica_senha(){
       return false;
    } else{
       document.getElementById("erro_senha").style.display = "none";
-      document.getElementById("senha").style.borderColor = "#000000";
-      document.getElementById("senha").style.outline = "#000000";
+      document.getElementById("senha").style.borderColor = "#808080";
+      document.getElementById("senha").style.outline = "#808080";
       return true;
    }
 }
@@ -202,8 +202,8 @@ function verifica_confirma_senha(){
       return false;
    } else{
       document.getElementById("erro_confirma_senha").style.display = "none";
-      document.getElementById("confirma_senha").style.borderColor = "#000000";
-      document.getElementById("confirma_senha").style.outline = "#000000";
+      document.getElementById("confirma_senha").style.borderColor = "#808080";
+      document.getElementById("confirma_senha").style.outline = "#808080";
       return true;
    }
 
@@ -229,4 +229,7 @@ function limpar(){
    for(let i = 0; i < reset_borda.length; i++){
       reset_borda[i].style.border = '1px solid gray';
    }
+   document.getElementById('gen_fem').style.border = '1px solid gray';
+   document.getElementById('gen_masc').style.border = '1px solid gray';
 }
+
