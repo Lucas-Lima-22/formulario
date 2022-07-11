@@ -128,11 +128,35 @@ function verifica_nascimento(){
    }
 }
 
+function sel_fem(){
+   document.getElementById("erro_genero").style.display = "none";
+   document.getElementById("gen_fem").style.borderColor = "#000000";
+   document.getElementById("gen_masc").style.borderColor = "#000000";
+}
+
+function sel_masc(){
+   document.getElementById("erro_genero").style.display = "none";
+   document.getElementById("gen_fem").style.borderColor = "#000000";
+   document.getElementById("gen_masc").style.borderColor = "#000000";
+}
+
 function verifica_genero(){
-   genero = document.querySelector('input[name="genero"]:checked').value;
-   if (genero == 1 || genero == 2){
+   //genero = document.querySelector('input[name="genero"]:checked').value;
+   if (document.getElementById("fem").checked) {
+      document.getElementById("erro_genero").style.display = "none";
+      document.getElementById("gen_fem").style.borderColor = "#000000";
+      document.getElementById("gen_masc").style.borderColor = "#000000";
       return true;
-   } else{
+   } else if (document.getElementById("masc").checked) {
+      document.getElementById("erro_genero").style.display = "none";
+      document.getElementById("gen_fem").style.borderColor = "#000000";
+      document.getElementById("gen_masc").style.borderColor = "#000000";
+      return true;
+   } else {
+      document.getElementById("gen_fem").style.borderColor = "#ff0000";
+      document.getElementById("gen_masc").style.borderColor = "#ff0000";
+      document.getElementById("erro_genero").style.display = "inline";
+      document.getElementById("erro_genero").innerHTML = "Você deve selecionar um gênero.";
       return false;
    }
 }
@@ -163,6 +187,13 @@ function verifica_senha(){
 function verifica_confirma_senha(){
    var senha = document.getElementById("senha").value;
    var confirma_senha = document.getElementById("confirma_senha").value;
+   if (confirma_senha.length == 0){
+      document.getElementById("erro_confirma_senha").style.display = "inline";
+      document.getElementById("erro_confirma_senha").innerHTML = "Você precisa confirmar a senha.";
+      document.getElementById("confirma_senha").style.borderColor = "#ff0000";
+      document.getElementById("confirma_senha").style.outline = "#ff0000";
+      return false;
+   }
    if (confirma_senha != senha){
       document.getElementById("erro_confirma_senha").style.display = "inline";
       document.getElementById("erro_confirma_senha").innerHTML = "A senha deve ser igual a anterior.";
@@ -179,17 +210,13 @@ function verifica_confirma_senha(){
 }
 
 function validar(){
-   if (verifica_nome() && 
-      verifica_cpf() && 
-      verifica_email() && 
-      verifica_nascimento() &&
-      verifica_genero() &&
-      verifica_senha() && 
-      verifica_confirma_senha()){
-      alert('Cadastro realizado com sucesso!');
-   } else {
-      alert('Preencha todos os dados corretamente!');
-   }
+   verifica_nome();
+   verifica_cpf();
+   verifica_email();
+   verifica_nascimento();
+   verifica_genero();
+   verifica_senha();
+   verifica_confirma_senha();
 }
 
 function limpar(){

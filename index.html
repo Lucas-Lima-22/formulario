@@ -44,7 +44,7 @@
         }
 
         input#confirmar:active{
-            outline: 1px solid forestgreen;
+            outline: 1px solid #228b22;
         }
 
         input#cancelar:active{
@@ -101,7 +101,7 @@
 </head>
 <body>
     <main>
-        <form action="" autocomplete="off" id="form">
+        <form action="cadastro.php" autocomplete="off" id="form" method="post">
             <p><label for="nome">Nome </label></p>
             <p><input type="text" name="nome" id="nome" oninput="mascara_nome()" onblur="verifica_nome()" required></p>
             <p><span id="erro_nome" style="display: none;"></span></p>
@@ -117,12 +117,13 @@
             <p><label for="fem">Gênero</label></p>  
             <div id="gen_fem">
                 <label for="fem" id="lab_fem">Feminino</label>
-                <input type="radio" value="1" name="genero" id="fem" required>
+                <input type="radio" value="1" name="genero" id="fem" required onclick="sel_fem()">
             </div>
             <div id="gen_masc">
                 <label for="masc" id="lab_masc">Masculino</label>
-                <input type="radio" value="2" name="genero" id="masc">
+                <input type="radio" value="2" name="genero" id="masc" onclick="sel_masc()">
             </div>
+            <p><span id="erro_genero" style="display: none;"></span></p>
             <p><label for="senha">Senha</label></p>
             <p><input type="password" name="senha" id="senha" onblur="verifica_senha()" minlength="8" maxlength="15" required></p>
             <p><span id="erro_senha" style="display: none;"></span></p>
