@@ -77,7 +77,7 @@ function verifica_email() {
       document.getElementById("email").style.borderColor = "#ff0000";
       document.getElementById("email").style.outline = "#ff0000";
       if (document.getElementById("email").value.length == 0){
-         document.getElementById("erro_email").innerHTML = "Você precisa informar um e-mail.";
+         document.getElementById("erro_email").innerHTML = "Você precisa informar seu e-mail.";
       }
       return false;
    } else {
@@ -107,8 +107,9 @@ function mascara_nascimento(){
 
 function verifica_nascimento(){
    var nascimento = document.getElementById("nascimento").value;
-   var nasc_array = nascimento.split("/");
-   nascimento = nasc_array[1] + "/" + nasc_array[0] + "/" + nasc_array[2];
+   var nasc = document.getElementById("nascimento").value;
+   var nasc_array = nasc.split("/");
+   nasc = nasc_array[1] + "/" + nasc_array[0] + "/" + nasc_array[2];
 
    var data = new Date();
    var ano = data.getFullYear();
@@ -116,7 +117,7 @@ function verifica_nascimento(){
    var dia = data.getDate();
    var data_completa = mes + "/" + dia + "/" + ano;
 
-   var data1 = new Date(nascimento);
+   var data1 = new Date(nasc);
    var data2 = new Date(data_completa);
    var timeDiff = (data2.getTime() - data1.getTime());
    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
@@ -130,14 +131,14 @@ function verifica_nascimento(){
    }
    if (nascimento.length != 10){
       document.getElementById("erro_nascimento").style.display = "inline";
-      document.getElementById("erro_nascimento").innerHTML = "Você precisa informar uma data válida.";
+      document.getElementById("erro_nascimento").innerHTML = "Você deve informar uma data válida.";
       document.getElementById("nascimento").style.borderColor = "#ff0000";
       document.getElementById("nascimento").style.outline = "#ff0000";
       return false;
    } 
    if (diffDays < 0 || isNaN(diffDays)){
       document.getElementById("erro_nascimento").style.display = "inline";
-      document.getElementById("erro_nascimento").innerHTML = "Você precisa informar uma data válida.";
+      document.getElementById("erro_nascimento").innerHTML = "Você deve informar uma data válida.";
       document.getElementById("nascimento").style.borderColor = "#ff0000";
       document.getElementById("nascimento").style.outline = "#ff0000";
       return false;
@@ -176,7 +177,7 @@ function verifica_genero(){
       document.getElementById("gen_fem").style.borderColor = "#ff0000";
       document.getElementById("gen_masc").style.borderColor = "#ff0000";
       document.getElementById("erro_genero").style.display = "inline";
-      document.getElementById("erro_genero").innerHTML = "Você deve selecionar um gênero.";
+      document.getElementById("erro_genero").innerHTML = "Você precisa selecionar um gênero.";
       return false;
    }
 }
