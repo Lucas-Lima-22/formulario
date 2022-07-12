@@ -107,6 +107,20 @@ function mascara_nascimento(){
 
 function verifica_nascimento(){
    var nascimento = document.getElementById("nascimento").value;
+   var nasc_array = nascimento.split("/");
+   nascimento = nasc_array[1] + "/" + nasc_array[0] + "/" + nasc_array[2];
+
+   var data = new Date();
+   var ano = data.getFullYear();
+   var mes = data.getMonth() + 1;
+   var dia = data.getDate();
+   var data_completa = mes + "/" + dia + "/" + ano;
+
+   var data1 = new Date(nascimento);
+   var data2 = new Date(data_completa);
+   var timeDiff = (data2.getTime() - data1.getTime());
+   var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
    if (nascimento.length == 0){
       document.getElementById("erro_nascimento").style.display = "inline";
       document.getElementById("erro_nascimento").innerHTML = "A data de nascimento deve ser informada.";
@@ -120,10 +134,17 @@ function verifica_nascimento(){
       document.getElementById("nascimento").style.borderColor = "#ff0000";
       document.getElementById("nascimento").style.outline = "#ff0000";
       return false;
-   } else{
+   } 
+   if (diffDays < 0 || isNaN(diffDays)){
+      document.getElementById("erro_nascimento").style.display = "inline";
+      document.getElementById("erro_nascimento").innerHTML = "Você precisa informar uma data válida.";
+      document.getElementById("nascimento").style.borderColor = "#ff0000";
+      document.getElementById("nascimento").style.outline = "#ff0000";
+      return false;
+   } else {
       document.getElementById("erro_nascimento").style.display = "none";
-      document.getElementById("nascimento").style.borderColor = "#808080";
-      document.getElementById("nascimento").style.outline = "#808080";
+      document.getElementById("nascimento").style.borderColor = "#000000";
+      document.getElementById("nascimento").style.outline = "#000000";
       return true;
    }
 }
@@ -141,7 +162,6 @@ function sel_masc(){
 }
 
 function verifica_genero(){
-   //genero = document.querySelector('input[name="genero"]:checked').value;
    if (document.getElementById("fem").checked) {
       document.getElementById("erro_genero").style.display = "none";
       document.getElementById("gen_fem").style.borderColor = "#808080";
