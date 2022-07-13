@@ -129,7 +129,7 @@ function verifica_nascimento(){
       document.getElementById("nascimento").style.outline = "#ff0000";
       return false;
    }
-   if (nascimento.length != 10){
+   else if (nascimento.length != 10){
       document.getElementById("erro_nascimento").style.display = "inline";
       document.getElementById("erro_nascimento").innerHTML = "Você deve informar uma data válida.";
       document.getElementById("nascimento").style.borderColor = "#ff0000";
