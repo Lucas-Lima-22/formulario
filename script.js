@@ -241,7 +241,6 @@ function validar(){
 }
 
 function limpar(){
-   document.querySelector('#form').reset();
    var reset_span = document.getElementsByTagName("span");
    var reset_borda = document.getElementsByTagName("input");
    for(let i = 0; i < reset_span.length; i++){
